@@ -1,8 +1,69 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import GlassCard from '../components/GlassCard';
 import Section from '../components/Section';
 import { internshipActivities } from '../data/internship';
 import { formatDay, formatDisplayDate } from '../utils/dates';
+
+function formatUptime(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  return `${String(hours).padStart(2, '0')}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(2, '0')}s`;
+}
+
+function randomInRange(min, max) {
+  return (Math.random() * (max - min) + min).toFixed(1);
+}
+
+function TelemetryMonitor({ activity }) {
+  const [clock, setClock] = useState(new Date());
+  const [startedAt] = useState(() => Date.now());
+  const [stats, setStats] = useState({ temp: '42.4', ram: '64.2' });
+
+  useEffect(() => {
+    const clockTimer = window.setInterval(() => setClock(new Date()), 1000);
+    const statTimer = window.setInterval(() => {
+      setStats({
+        temp: randomInRange(41, 44),
+        ram: randomInRange(62, 66),
+      });
+    }, 2600);
+
+    return () => {
+      window.clearInterval(clockTimer);
+      window.clearInterval(statTimer);
+    };
+  }, []);
+
+  const uptime = Math.floor((Date.now() - startedAt) / 1000);
+  const localTime = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(clock);
+
+  return (
+    <GlassCard className="telemetry-card">
+      <div className="telemetry-wave" aria-hidden="true">
+        <span />
+      </div>
+      <div className="ping-status">
+        <span aria-hidden="true" />
+        PING: 12ms
+      </div>
+      <span className="telemetry-label">Today&apos;s Activity</span>
+      <strong>{localTime}</strong>
+      <small>SYS_UPTIME: {formatUptime(uptime)}</small>
+      <div className="micro-stat-row">
+        <span>MCU_TEMP: {stats.temp}&deg;C</span>
+        <span>RAM_LOAD: {stats.ram}%</span>
+      </div>
+      <p>{formatDisplayDate(new Date(`${activity.date}T00:00:00`))}</p>
+    </GlassCard>
+  );
+}
 
 export default function InternshipTracker() {
   const [activities, setActivities] = useState(
@@ -36,7 +97,7 @@ export default function InternshipTracker() {
           <GlassCard><strong>{metrics.pending}</strong><span>Pending Tasks</span></GlassCard>
           <GlassCard><strong>{activities.length}</strong><span>Total Working Days</span></GlassCard>
           <GlassCard><strong>{metrics.inProgress}</strong><span>Active Reviews</span></GlassCard>
-          <GlassCard><strong>{formatDisplayDate(new Date(`${metrics.today.date}T00:00:00`))}</strong><span>Today&apos;s Activity</span></GlassCard>
+          <TelemetryMonitor activity={metrics.today} />
         </div>
       </Section>
 

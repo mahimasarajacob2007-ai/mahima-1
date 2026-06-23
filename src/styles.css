@@ -186,6 +186,10 @@ main {
   line-height: 1.7;
 }
 
+.hero-copy p {
+  margin-bottom: 1.1rem;
+}
+
 .hero-role {
   color: #e5d4ff !important;
   font-size: clamp(1.2rem, 3vw, 2rem);
@@ -210,6 +214,10 @@ main {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+}
+
+.button-row {
+  margin-top: 1.5rem !important;
 }
 
 .btn-primary,
@@ -266,7 +274,8 @@ main {
     inset 0 0 32px rgba(217, 173, 79, 0.12),
     0 30px 90px rgba(9, 2, 24, 0.5);
   transform-style: preserve-3d;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  transition: transform 0.28s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
 }
 
 .profile-frame::before,
@@ -286,7 +295,6 @@ main {
 
 .profile-frame:hover {
   border-color: rgba(255, 229, 143, 0.92);
-  transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
   box-shadow:
     26px 34px 90px rgba(111, 45, 189, 0.55),
     -18px -18px 70px rgba(217, 173, 79, 0.34),
@@ -412,6 +420,9 @@ main {
 
 .counter-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem !important;
+  column-gap: 24px;
+  row-gap: 24px;
 }
 
 .counter-grid.compact {
@@ -447,6 +458,99 @@ main {
 .skill-grid,
 .dashboard-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.telemetry-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 174px;
+}
+
+.telemetry-card strong,
+.telemetry-card small,
+.telemetry-card p,
+.telemetry-label,
+.micro-stat-row,
+.ping-status {
+  position: relative;
+  z-index: 1;
+}
+
+.telemetry-card strong {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0;
+}
+
+.telemetry-card small,
+.telemetry-label {
+  display: block;
+  color: rgba(251, 191, 36, 0.9);
+  font-weight: 800;
+}
+
+.telemetry-card p {
+  margin: 12px 0 0;
+  color: rgba(255, 244, 199, 0.78);
+}
+
+.telemetry-wave {
+  position: absolute;
+  inset: 0;
+  opacity: 0.38;
+  background:
+    linear-gradient(90deg, rgba(251,191,36,0.05), rgba(111,45,189,0.16)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 24px);
+}
+
+.telemetry-wave span {
+  position: absolute;
+  left: -50%;
+  top: 48%;
+  width: 200%;
+  height: 56px;
+  background:
+    linear-gradient(90deg, transparent, rgba(67,255,158,0.2), transparent),
+    repeating-linear-gradient(105deg, transparent 0 24px, rgba(67,255,158,0.72) 25px 27px, transparent 28px 44px);
+  clip-path: polygon(0 55%, 5% 55%, 7% 30%, 10% 78%, 13% 42%, 16% 55%, 24% 55%, 27% 18%, 30% 88%, 34% 55%, 44% 55%, 47% 36%, 50% 70%, 54% 55%, 64% 55%, 67% 22%, 70% 82%, 74% 55%, 100% 55%);
+  animation: telemetrySweep 3.4s linear infinite;
+}
+
+.ping-status {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(219, 255, 238, 0.92);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.ping-status span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #43ff9e;
+  box-shadow: 0 0 14px #43ff9e;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+.micro-stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.micro-stat-row span {
+  padding: 8px 10px;
+  border: 1px solid rgba(67, 255, 158, 0.18);
+  border-radius: 12px;
+  background: rgba(8, 22, 20, 0.36);
+  color: rgba(219, 255, 238, 0.9);
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 .skill-title,
@@ -544,6 +648,33 @@ main {
 .activity-card select {
   max-width: 150px;
   padding: 10px;
+}
+
+.activity-card .eyebrow {
+  color: #fbbf24;
+}
+
+.activity-card h3 {
+  color: #fbbf24;
+}
+
+.activity-card select {
+  appearance: none;
+  border-color: rgba(251, 191, 36, 0.72);
+  color: #fbbf24;
+  font-weight: 800;
+  background-color: rgba(251, 191, 36, 0.08);
+  background-image:
+    linear-gradient(45deg, transparent 50%, #fbbf24 50%),
+    linear-gradient(135deg, #fbbf24 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 34px;
 }
 
 .activity-card option {
@@ -716,6 +847,16 @@ main {
 
 @keyframes drift {
   50% { transform: translate3d(18px, -28px, 0) scale(1.4); }
+}
+
+@keyframes telemetrySweep {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(50%);
+  }
 }
 
 @keyframes blink {

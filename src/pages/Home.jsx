@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FaDownload, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa';
 import GlassCard from '../components/GlassCard';
 import Section from '../components/Section';
@@ -7,6 +8,22 @@ import { profileLinks } from '../utils/links';
 
 export default function Home() {
   const featured = projects.slice(0, 3);
+  const [chipTransform, setChipTransform] = useState('perspective(1000px) rotateX(0deg) rotateY(0deg)');
+
+  function handleChipMove(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateY = ((x - centerX) / centerX) * 12;
+    const rotateX = -((y - centerY) / centerY) * 12;
+    setChipTransform(`perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`);
+  }
+
+  function resetChipTilt() {
+    setChipTransform('perspective(1000px) rotateX(0deg) rotateY(0deg)');
+  }
 
   return (
     <>
@@ -26,7 +43,12 @@ export default function Home() {
           </div>
         </div>
         <div className="profile-orbit" aria-label="Interactive microchip module">
-          <div className="profile-frame">
+          <div
+            className="profile-frame"
+            onMouseMove={handleChipMove}
+            onMouseLeave={resetChipTilt}
+            style={{ transform: chipTransform }}
+          >
             <div className="chip-pins chip-pins-left" aria-hidden="true">
               <span />
               <span />
