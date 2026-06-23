@@ -101,7 +101,7 @@ export default function InternshipTracker() {
         </div>
       </Section>
 
-      <Section title="Working Day Activity Cards">
+      <Section title="Working Day Activity Cards" reveal={false}>
         <div className="activity-grid">
           {activities.map((activity, index) => {
             const date = new Date(`${activity.date}T00:00:00`);

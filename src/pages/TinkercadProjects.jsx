@@ -47,7 +47,7 @@ export default function TinkercadProjects() {
         </div>
       </Section>
 
-      <Section title={`${filteredProjects.length} Projects`}>
+      <Section title={`${filteredProjects.length} Projects`} reveal={false}>
         <div className="gallery-grid">
           {filteredProjects.map((project) => (
             <GlassCard key={project.slug} className="project-card">
