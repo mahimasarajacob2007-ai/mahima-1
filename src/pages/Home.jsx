@@ -25,9 +25,26 @@ export default function Home() {
             <a className="btn-secondary" href={profileLinks.linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a>
           </div>
         </div>
-        <div className="profile-orbit" aria-label="Professional profile placeholder">
+        <div className="profile-orbit" aria-label="Interactive microchip module">
           <div className="profile-frame">
-            <span>MSJ</span>
+            <div className="chip-pins chip-pins-left" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="chip-pins chip-pins-right" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="status-ring" aria-hidden="true" />
+            <span className="chip-initials">MSJ</span>
+            <div className="chip-status">
+              <span className="hardware-dot" aria-hidden="true" />
+              <small>[ SYSTEM: ONLINE ]</small>
+            </div>
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
 import GlassCard from '../components/GlassCard';
 import Section from '../components/Section';
 import { profileLinks } from '../utils/links';
@@ -23,8 +23,7 @@ export default function ResumeContact() {
           <GlassCard>
             <h3>Contact Details</h3>
             <ul className="contact-list">
-              <li><FaEnvelope /> <a href={profileLinks.email}>mahimasarajacob@gmail.com</a></li>
-              <li><FaPhone /> <a href={profileLinks.phone}>+91 98765 43210</a></li>
+              <li><FaEnvelope /> <a href={profileLinks.email}>mahimasj07@gmail.com</a></li>
               <li><FaMapMarkerAlt /> Kerala, India</li>
               <li><FaGithub /> <a href={profileLinks.github} target="_blank" rel="noopener noreferrer">GitHub Profile</a></li>
               <li><FaLinkedin /> <a href={profileLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>

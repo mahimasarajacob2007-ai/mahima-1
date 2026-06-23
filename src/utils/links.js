@@ -24,8 +24,7 @@ export function buildProjectLink(project) {
 
 export const profileLinks = {
   resume: '/resume-mahima-sara-jacob.pdf',
-  github: 'https://github.com/mahimasarajacob2007-ai',
-  linkedin: 'https://www.linkedin.com/in/mahima-sara-jacob',
-  email: 'mailto:mahimasarajacob@gmail.com',
-  phone: 'tel:+919876543210',
+  github: 'https://github.com/mahimasarajacob2007-ai/sensors-and-actuators-website-',
+  linkedin: 'https://www.linkedin.com/',
+  email: 'mailto:mahimasj07@gmail.com',
 };
