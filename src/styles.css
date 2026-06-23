@@ -220,6 +220,10 @@ main {
   margin-top: 1.5rem !important;
 }
 
+.hero-copy .button-row {
+  margin-bottom: 2rem !important;
+}
+
 .btn-primary,
 .btn-secondary,
 .contact-form button {
@@ -764,6 +768,10 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.resume-preview p {
+  margin-bottom: 1.5rem !important;
 }
 
 .contact-list li {
