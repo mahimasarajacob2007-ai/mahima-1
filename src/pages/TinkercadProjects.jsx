@@ -18,6 +18,11 @@ export default function TinkercadProjects() {
     });
   }, [category, query]);
 
+  const categoryCounts = useMemo(() => projects.reduce((counts, project) => ({
+    ...counts,
+    [project.category]: (counts[project.category] || 0) + 1,
+  }), {}), []);
+
   return (
     <>
       <section className="page-hero" data-reveal>
@@ -41,9 +46,9 @@ export default function TinkercadProjects() {
           </div>
         </div>
         <div className="counter-grid compact">
-          <GlassCard><strong>10</strong><span>Sensor Projects</span></GlassCard>
-          <GlassCard><strong>10</strong><span>Actuator Projects</span></GlassCard>
-          <GlassCard><strong>10</strong><span>Sensor + Actuator</span></GlassCard>
+          <GlassCard><strong>{categoryCounts['Sensor Projects']}</strong><span>Sensor Projects</span></GlassCard>
+          <GlassCard><strong>{categoryCounts['Actuator Projects']}</strong><span>Actuator Projects</span></GlassCard>
+          <GlassCard><strong>{categoryCounts['Sensor + Actuator Projects']}</strong><span>Sensor + Actuator</span></GlassCard>
         </div>
       </Section>
 

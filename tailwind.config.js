@@ -3,14 +3,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        violetDeep: '#190a34',
+        violetDeep: '#000000',
         royalPurple: '#6f2dbd',
         indigoInk: '#25245f',
         lavenderMist: '#e5d4ff',
-        goldMetal: '#d9ad4f',
+        goldMetal: '#00e5ff',
       },
       boxShadow: {
-        glow: '0 0 40px rgba(217, 173, 79, 0.22)',
+        glow: '0 0 40px rgba(0, 229, 255, 0.22)',
         glass: '0 24px 80px rgba(10, 5, 30, 0.38)',
       },
       fontFamily: {

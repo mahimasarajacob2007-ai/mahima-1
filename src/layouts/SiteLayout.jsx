@@ -22,7 +22,7 @@ export default function SiteLayout() {
   return (
     <>
       <LoadingScreen isDone={loaded} />
-      <div className="site-bg">
+      <div id="portfolio-full-canvas" className="site-bg">
         <div className="particle particle-one" />
         <div className="particle particle-two" />
         <div className="particle particle-three" />

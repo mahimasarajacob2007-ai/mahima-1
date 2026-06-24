@@ -1,5 +1,6 @@
-import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
 import GlassCard from '../components/GlassCard';
+import PortfolioPdfButton from '../components/PortfolioPdfButton';
 import Section from '../components/Section';
 import { profileLinks } from '../utils/links';
 
@@ -18,7 +19,7 @@ export default function ResumeContact() {
             <span className="eyebrow">Mahima Sara Jacob</span>
             <h3>Electronics & Communication Engineering Student</h3>
             <p>Focus areas: embedded systems, IoT connectivity, Arduino programming, circuit simulation, cloud fundamentals, and product-style documentation.</p>
-            <a className="btn-primary" href={profileLinks.resume} download><FaDownload /> Download Resume</a>
+            <PortfolioPdfButton filename="mahima-sara-jacob-live-portfolio.pdf">Download Resume</PortfolioPdfButton>
           </GlassCard>
           <GlassCard>
             <h3>Contact Details</h3>

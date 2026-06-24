@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { FaDownload, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa';
 import GlassCard from '../components/GlassCard';
+import PortfolioPdfButton from '../components/PortfolioPdfButton';
 import Section from '../components/Section';
 import { achievements, certifications, counters, skills, softSkills, timeline } from '../data/profile';
 import { projects } from '../data/projects';
@@ -37,7 +38,7 @@ export default function Home() {
             cloud concepts, and product-style prototype validation at College of Engineering Kidangoor.
           </p>
           <div className="button-row">
-            <a className="btn-primary" href={profileLinks.resume} download><FaDownload /> Resume</a>
+            <PortfolioPdfButton filename="mahima-sara-jacob-live-portfolio.pdf">Resume</PortfolioPdfButton>
             <a className="btn-secondary" href={profileLinks.github} target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a>
             <a className="btn-secondary" href={profileLinks.linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a>
           </div>
