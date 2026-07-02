@@ -1,5 +1,5 @@
 const PORTFOLIO_CANVAS_SELECTOR = '#portfolio-full-canvas';
-const PDF_BACKGROUND_COLOR = '#dcecef';
+const PDF_BACKGROUND_COLOR = '#000000';
 const PDF_MARGINS_IN = [0.2, 0.2, 0.2, 0.2];
 
 function injectCaptureFallbackStyles() {

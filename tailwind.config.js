@@ -4,14 +4,14 @@ export default {
     extend: {
       colors: {
         violetDeep: '#000000',
-        royalPurple: '#6f2dbd',
-        indigoInk: '#25245f',
-        lavenderMist: '#e5d4ff',
-        goldMetal: '#00e5ff',
+        royalPurple: '#9333EA',
+        indigoInk: '#7E22CE',
+        lavenderMist: '#C084FC',
+        goldMetal: '#A855F7',
       },
       boxShadow: {
-        glow: '0 0 40px rgba(0, 229, 255, 0.22)',
-        glass: '0 24px 80px rgba(10, 5, 30, 0.38)',
+        glow: '0 0 40px rgba(168, 85, 247, 0.34)',
+        glass: '0 24px 80px rgba(0, 0, 0, 0.62)',
       },
       fontFamily: {
         display: ['Inter', 'ui-sans-serif', 'system-ui'],
